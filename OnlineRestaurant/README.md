@@ -1,35 +1,26 @@
-﻿1.几个主页面是借鉴的foodpanda这款软件
-2.所有数据放在本地的Restaurants.plist文件中，可自行根据需要修改，但是不要改变他的结构
-3.采用的是MVC的架构模式
-4.所有界面UI都在Main.storyboard 通过拖拽控件实现
-5.多数页面都是基于tableView来实现 多数布局都是使用到StakView
+1. Several main pages are borrowed from the foodpanda software 2. All data are placed in the local Restaurants.plist file, which can be modified as needed, but do not change his structure 3. The MVC architectural pattern is adopted 4. All interface UIs are implemented in Main.storyboard by dragging and dropping controls. 5. Most pages are based on tableView to achieve most layouts using StakView
 
----Home文件目录下面是首页内容
-HomeViewController
-这个页面只是一个展示的静态页面，除了点击View会进入到餐厅RestaurantsViewController页面 没有其他交互
+--- Below the Home file directory is the home page content HomeViewController This page is just a static page for display, except that clicking View will enter the restaurant RestaurantViewController page, there is no other interaction
 
----Restaurants 餐厅和食物列表
+---Restaurants restaurant and food list
 
-RestaurantsViewController 从本地Restaurants.plist获取到数据 通过数组转模型 
-把模型数据展示在页面上 通过连线 将对应的tableView单元格数据传递到下一个食物详情页面
+RestaurantsViewController gets the data from the local Restaurants.plist and transfers the model data through the array to display the model data on the page. Pass the corresponding tableView cell data to the next food details page through the connection
 
-RestaurantsFoodViewController 顶部显示餐厅的一些信息 列表中显示餐厅受欢迎的食物
+RestaurantsFoodViewController displays some information about the restaurant at the top The list displays the restaurant's popular food
 
-点击食物列表会弹出下单页面 可以点击加入购物车AddFoodViewController
+Click on the food list will pop up the order page, you can click AddFoodViewController
 
-点击顶部餐厅信息会跳转到餐厅详情页面RestaurantsDetailViewController
-详情页展示餐厅信息 客人评论 和 餐厅位置地图
+Click on the restaurant information at the top to jump to the restaurant details page RestaurantDetailViewController The details page displays restaurant information, guest reviews and restaurant location map
 
+---Cart shopping cart
 
----Cart 购物车
+After adding food, the data will be stored locally in the order management CartViewController will display the local shopping cart data
 
-添加食物后 会把数据存入本地 在订单管理CartViewController会展示本地的购物车数据
+The quantity of food in the shopping cart can be modified and deleted
 
-购物车的食物数量可以修改 可以删除
+Before confirming the order, you need to add the payment method PaymentMethodViewController and the address AddAddressViewController
 
-在确认下单前需要添加支付方式PaymentMethodViewController和地址AddAddressViewController
-
-同时满足 购物车有数据 有地址 有支付方式 就可以下单 会提示下单成功OrderCompleteViewController
+At the same time, if the shopping cart has data, address, and payment method, you can place an order. It will prompt OrderCompleteViewController to place the order successfully.
 
 
 
