@@ -1,26 +1,31 @@
-1. Several main pages are borrowed from the foodpanda software 2. All data are placed in the local Restaurants.plist file, which can be modified as needed, but do not change his structure 3. The MVC architectural pattern is adopted 4. All interface UIs are implemented in Main.storyboard by dragging and dropping controls. 5. Most pages are based on tableView to achieve most layouts using StakView
+# Home view
+- This page (HomeViewController) is just a static page for display
+- Clicking will move to RestaurantViewController
 
---- Below the Home file directory is the home page content HomeViewController This page is just a static page for display, except that clicking View will enter the restaurant RestaurantViewController page, there is no other interaction
+# Restaurant model
+- RestaurantsViewController gets the data from the local Restaurants.plist and transfers the model data through the array to display the model data on the page. 
+- Data will be map to restaurant model and display corresponding.
 
----Restaurants restaurant and food list
+# Restaurant view
+- RestaurantsFoodViewController displays some information about the restaurant 
+- Top list displays the restaurant's popular food
+- Click on the food will pop up order page, click to navigate to AddFoodViewController
+- Click on the restaurant information at the top to jump to the restaurant details page RestaurantDetailViewController 
+- The details page displays restaurant information, guest reviews and restaurant location map
 
-RestaurantsViewController gets the data from the local Restaurants.plist and transfers the model data through the array to display the model data on the page. Pass the corresponding tableView cell data to the next food details page through the connection
+# Cart view
+- After adding food, the data will be stored locally
+- CartViewController will display the local shopping cart data
+- The quantity of food in the shopping cart can be modified and deleted using plus / subtract and delete button
+- Before confirming the order, you need to add the payment method (via PaymentMethodViewController) and the address (via AddAddressViewController)
+- If all condition has passed (food data, address, payment method), order will succeed and prompt to navigate to OrderCompleteViewController to place the order locally.
 
-RestaurantsFoodViewController displays some information about the restaurant at the top The list displays the restaurant's popular food
-
-Click on the food list will pop up the order page, you can click AddFoodViewController
-
-Click on the restaurant information at the top to jump to the restaurant details page RestaurantDetailViewController The details page displays restaurant information, guest reviews and restaurant location map
-
----Cart shopping cart
-
-After adding food, the data will be stored locally in the order management CartViewController will display the local shopping cart data
-
-The quantity of food in the shopping cart can be modified and deleted
-
-Before confirming the order, you need to add the payment method PaymentMethodViewController and the address AddAddressViewController
-
-At the same time, if the shopping cart has data, address, and payment method, you can place an order. It will prompt OrderCompleteViewController to place the order successfully.
-
+# Extra notes
+- Several pages are borrowed from the FoodPanda software
+- All data are placed in the local Restaurants.plist file, which can be modified but won't work if structure changed (require to follow current template)
+- All interface UIs are implemented in Main.storyboard by dragging and dropping controls
+- Most pages are created using tableView
+- Most layouts are created using StakView
+- MVC pattern are basic MVC, adopted from past projects
 
 
